@@ -17,7 +17,7 @@ app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
 app.use(express.static('./public'));
 
-mongoose.connect('mongodb://heroku_jns4phwt:61tt9c1oiotedcl5ndjhfv9pn5@ds019936.mlab.com:19936/heroku_jns4phwt');
+mongoose.connect('mongodb:');
 
 var db = mongoose.connection;
 
@@ -25,13 +25,16 @@ db.on('error', function (err) {
   console.log('Mongoose Error: ', err);
 });
 
+
 db.once('open', function () {
   console.log('Mongoose connection works.');
 });
 
+
 app.get('/', function(req, res){
   res.sendFile('./public/index.html');
 })
+
 
 app.get('/api/saved', function(req, res) {
 

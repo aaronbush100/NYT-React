@@ -6,19 +6,21 @@ var hashHistory = require('react-router').hashHistory;
 var Route = require('react-router').Route;
 var IndexRoute	= require('react-router').IndexRoute;
 var Main = require('./components/Main');
-var Search = require('./components/children/Search'); 
-var Saved = require('./components/children/SavedArticles');
+var Form = require('./components/children/Form'); 
+var Saved = require('./components/children/Save');
 
 ReactDOM.render(
 	<Router history={hashHistory}>
 
 		<Route path='/' component={Main}>
 
-			<Route path='search' component={Search} />
+			<Route path='form' component={Form} />
 
-			<Route path='saved' component={Saved} />
+			<Route path='save' component={Save} />
 
-			<IndexRoute component={Search} />
+			<Route path='results' component={Results} />
+
+			<IndexRoute component={} />
 			
 		</Route>
 
